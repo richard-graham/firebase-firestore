@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Document</title>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script> instead of loading whole library segment for efficiency-->
+  <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-firestore.js"></script>
+</head>
+<body>
+  <h1>Cloud Cafe</h1>
+  <div class="content"> 
+    <form id="add-cafe-form"></form>
+    <ul id="cafe-list"></ul>
+  </div>
+  <!-- get this from firebase console -->
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyANQ3lYQmujnK4y41SXKETaqexCdHiCj3g",
+      authDomain: "ninja-firestore-tut-b03b5.firebaseapp.com",
+      databaseURL: "https://ninja-firestore-tut-b03b5.firebaseio.com",
+      projectId: "ninja-firestore-tut-b03b5",
+      storageBucket: "ninja-firestore-tut-b03b5.appspot.com",
+      messagingSenderId: "619956045286"
+    };
+    firebase.initializeApp(config);
+    // references db
+    const db = firebase.firestore() 
+    // stops annoying console.logs
+    db.settings({ timestampsInSnapshots: true })
+  </script>
+  <!-- has to be bellow db definition in order to use it -->
+  <script src="./app.js"></script>
+
+</body>
+</html>
